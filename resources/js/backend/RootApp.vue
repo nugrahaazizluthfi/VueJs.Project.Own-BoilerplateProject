@@ -29,13 +29,24 @@ export default {
 <style>
 .errors-group {
     display: block;
-    min-height: 10px;
+    min-height: 25px;
 }
+
+.errors-group .information {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 7px;
+    background: rgba(255, 228, 171, 0.5);
+    font-size: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .error {
     color: red;
     font-size: 11px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .form-group {
@@ -43,10 +54,32 @@ export default {
     clear: both;
 }
 
+.from-group-mb {
+    margin-bottom: 20px !important;
+}
+
 .login-box-body {
     border: 1px solid #ddd;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     background: #fff;
+}
+
+.divider {
+    display: block;
+    height: 20px;
+}
+
+.filter-toggle {
+    text-align: right;
+}
+
+th.column-center,
+td.column-center {
+    text-align: center !important;
+}
+
+.page-title {
+    margin-top: 20px;
 }
 </style>

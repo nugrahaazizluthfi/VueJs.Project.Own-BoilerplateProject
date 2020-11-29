@@ -16,7 +16,6 @@ const actions = {
                 .post("/auth/signin", payload)
                 .then(response => {
                     const { results, meta } = response.data;
-                    console.log(results);
                     if (meta.status == "success") {
                         dispatch("setToken", results.token);
                         commit("SET_USER_INFORMATION", results.user);

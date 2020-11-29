@@ -2,9 +2,13 @@ import Vue from "vue";
 import Router from "vue-router";
 import store from "../stores/index.js";
 import Home from "../pages/Home.vue";
-import Hello from "../pages/Hello.vue";
 import Login from "../pages/Login.vue";
-import TesTable from "../pages/TesTable.vue";
+
+// Menus Module
+import MenuIndex from "../pages/Menus/Index.vue";
+import Menus from "../pages/Menus/Display/Menus.vue";
+import MenusAdd from "../pages/Menus/Form/Add.vue";
+import MenusEdit from "../pages/Menus/Form/Edit.vue";
 
 Vue.use(Router);
 
@@ -20,12 +24,30 @@ const router = new Router({
             meta: { requiresAuth: true }
         },
         {
-            path: `${prefix}/hello`,
-            component: Hello
-        },
-        {
-            path: `${prefix}/tes-table`,
-            component: TesTable
+            path: `${prefix}/menus`,
+            component: MenuIndex,
+            name: "menus",
+            meta: { requiresAuth: true },
+            children: [
+                {
+                    path: "",
+                    name: "menus.data",
+                    component: Menus,
+                    meta: { title: "Menus: Display Data." }
+                },
+                {
+                    path: "add",
+                    name: "menus.add",
+                    component: MenusAdd,
+                    meta: { title: "Menus: Create New Data." }
+                },
+                {
+                    path: "edit/:id",
+                    name: "menus.edit",
+                    component: MenusEdit,
+                    meta: { title: "Menus: Edit Data." }
+                }
+            ]
         },
         {
             path: `${prefix}/login`,

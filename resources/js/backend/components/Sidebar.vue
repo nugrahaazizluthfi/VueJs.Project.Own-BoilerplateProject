@@ -15,20 +15,27 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-th"></i>
-                        <span>Menu Dropdown</span>
+                        <span>Setting Application</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="../../index.html"
-                                ><i class="fa fa-circle-o"></i> Menu 1</a
-                            >
+                            <router-link to="/bo/menus">
+                                <i class="fa fa-circle-o"></i> Manajemen Menus
+                            </router-link>
                         </li>
                         <li>
                             <a href="../../index2.html"
-                                ><i class="fa fa-circle-o"></i> Menu 2</a
+                                ><i class="fa fa-circle-o"></i> Manajemen
+                                Roles</a
+                            >
+                        </li>
+                        <li>
+                            <a href="../../index.html"
+                                ><i class="fa fa-circle-o"></i> Manajemen
+                                Users</a
                             >
                         </li>
                     </ul>

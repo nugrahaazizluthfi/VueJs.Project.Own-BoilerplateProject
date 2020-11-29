@@ -2,16 +2,19 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import auth from "./auth/index.js";
+import menus from "./menus/index.js";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     modules: {
-        auth
+        auth,
+        menus
     },
     state: {
         token: localStorage.getItem("token"),
-        errors: []
+        errors: [],
+        flashMessage: ""
     },
     getters: {
         isAuth: state => {
@@ -27,6 +30,14 @@ const store = new Vuex.Store({
         },
         CLEAR_ERRORS(state) {
             state.errors = [];
+        },
+        SET_FLASH_MESSAGE(state, payload) {
+            state.flashMessage = payload;
+        }
+    },
+    actions: {
+        setFlashMessage({ commit }, payload) {
+            commit("SET_FLASH_MESSAGE", payload);
         }
     }
 });

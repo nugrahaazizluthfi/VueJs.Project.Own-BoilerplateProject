@@ -46,6 +46,42 @@ abstract class Repository implements RepositoryInterface {
     }
 
     /**
+     * @param array $data
+     * @return mixed
+     */
+    public function create(array $data) {
+        return $this->model->create($data);
+    }
+
+    /**
+     * @param array $data
+     * @param $id
+     * @param string $attribute
+     * @return mixed
+     */
+    public function update(array $data, $id, $attribute="id") {
+        return $this->model->where($attribute, '=', $id)->update($data);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id) {
+        return $this->model->destroy($id);
+    }
+
+    /**
+     * @param int $perPage
+     * @param array $columns
+     * @return mixed
+     */
+    public function paginate($perPage = 15, $columns = array('*'), $pageName = 'page', $page = 1) {
+        return $this->model->paginate($perPage, $columns, $pageName, $page);
+    }
+
+
+    /**
      * @param $id
      * @param array $columns
      * @return mixed

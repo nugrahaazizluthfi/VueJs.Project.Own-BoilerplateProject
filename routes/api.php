@@ -19,7 +19,13 @@ Route::group([
 ], function ($router) {
     Route::post('auth/signin', 'API\BO\AuthController@signin');
     Route::post('auth/signout', 'API\BO\AuthController@signout');
+
+    // MENUS MANAGEMENT ENDPOINT
+    Route::get('menus', 'API\BO\MenuController@load');
+    Route::get('menus/{id}', 'API\BO\MenuController@loadById');
+    Route::get('parent-options', 'API\BO\MenuController@loadParentOptions');
+    Route::post('menus', 'API\BO\MenuController@submit');
+    Route::post('menus/{id}', 'API\BO\MenuController@update');
+    Route::delete('menus/{id}', 'API\BO\MenuController@delete');
 });
 
-
-Route::get('show-users', 'API\BO\SampleCrudController@showUser');
